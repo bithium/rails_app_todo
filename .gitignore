@@ -25,3 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/Gemfile.local
+/Gemfile.lock
+/config/database.yml
