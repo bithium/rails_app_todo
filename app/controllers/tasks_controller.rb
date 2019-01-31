@@ -38,6 +38,10 @@ class TasksController < ApplicationController
     @task.destroy
   end
 
+  def download
+    send_file(File.join(Rails.root, 'storage', params[:path]), filename: params[:path])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
