@@ -39,9 +39,9 @@ class TasksController < ApplicationController
   end
 
   def download
-    path = File.join(Rails.root, 'storage', params[:path])
+    path = Rails.root.join('storage', params[:path])
     if File.exist?(path)
-      send_file(path, filename: params[:path])
+      send_file(path.realpath, filename: params[:path])
     else
       render nothing: true, status: 404
     end
