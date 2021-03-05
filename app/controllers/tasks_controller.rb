@@ -38,6 +38,7 @@ class TasksController < ApplicationController
     @task.destroy
   end
 
+  # DOWNLOAD private file.
   def download
     path = Rails.root.join('storage', params[:path])
     if File.exist?(path)
@@ -45,6 +46,11 @@ class TasksController < ApplicationController
     else
       render nothing: true, status: 404
     end
+  end
+
+  # DUMP application environment
+  def environment
+    render json: ENV
   end
 
   private
